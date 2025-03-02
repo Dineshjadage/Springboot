@@ -1,0 +1,53 @@
+1.C:\Users\kisha>mongosh
+2.test> show dbs
+3.test> use college;
+4.college> db.student.insertOne( {name: "Ajju", branch: "CSE", qualification: "Diploma"});
+5.college> db.student.insertMany( [ {name: "Dinu", branch: "CSE", qualification:"Diploma"},{name: "kishan", branch: "CSE", qualification: "Diploma"} ] ); 
+6.college> db.student.find();
+7.college> db.student.updateOne( {name:"Ajju"},{$set:{branch:"EC"}});
+8.college> db.student.find();
+9.college> db.student.deleteOne({name:"kishan"});
+10.college> db.student.find().limit(1);
+11.college> db.student.find().limit(2);
+12.college> db.student.find().sort({name:-1});
+13.college> db.student.find().sort({name:-1});
+14.college> varmycursor=db.student.find();
+15.college> db.student.find().count();
+16.college> db.student.find().toArray();
+17.college> db.student.find().next();
+18.college> db.student.createIndex({Key:1});
+19.college> db.createUser(
+... {
+... user:"kishan",
+... pwd:"kishan@123",
+... roles:[]
+... }
+... );
+20.college> db.getUsers();
+21.college> db.grantRolesToUser("kishan",[{role:"readWrite",db:"college"}]);
+22.college> db.getUsers();
+23.college> db.createUser(
+... {
+... user:"restrict",
+... pwd:passwordPrompt(),
+... roles:[{role:"readWrite",db:"example"}],
+... authenticationRestrictions:[{
+... clientSource:["192.168.56.0"],
+... serverAddress:["198.157.54.0"]
+... }]
+... }
+... );
+Enter password
+**************{ ok: 1 }
+
+
+
+
+
+
+
+
+
+
+
+
